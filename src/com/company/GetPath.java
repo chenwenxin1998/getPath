@@ -9,20 +9,25 @@ public class GetPath {
     static int time = 0;
     public static void getPathes(Vector<Vector<Integer>> vec){
 
-        System.out.println(vec);
+//        System.out.println(vec);
         xstack.push(0);
         ystack.push(0);
         int x = 0;
         int y = 0;
         while (!xstack.empty()){
-            System.out.println("time:"+time);
-            time= time+1;
-            System.out.println("size:"+xstack.size());
-            System.out.printf("(%d, %d):%n",x,y);
+//            System.out.println("time:"+time);
+//            time= time+1;
+//            System.out.println("size:"+xstack.size());
+//            System.out.printf("(%d, %d):%n",x,y);
 
             x = (int) xstack.pop();
             y = (int) ystack.pop();
-            if(x+1<4){
+
+            if(x == 4&& y == 1){
+                time++;
+            }
+
+            if(x+1<5){
                 xstack.push(x+1);
                 ystack.push(y);
             }
@@ -30,11 +35,8 @@ public class GetPath {
                 xstack.push(x);
                 ystack.push(y+1);
             }
-
-
         }
-
-
+        System.out.println("time:"+time);
 
     }
 
